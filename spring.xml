@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context/
+  http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="Lawyer" class="org.example.Lawyer">
+        <!--<constructor-arg value="Fantastic"/>-->
+        <property name="qualification" value="Maggi"></property>
+        <!-- with this the bean injects the attributes into the lawyer class-->
+        <property name="Paralegal" ref="ParaLegal"></property>
+    </bean>
+    <bean id="ParaLegal" class="org.example.ParaLegal">
+       <!-- <constructor-arg value="Fantastic"/>-->
+        <property name="qualification" value="helper"></property>
+        <property name="lawyer" ref="Lawyer"></property>
+    </bean>
+</beans>
